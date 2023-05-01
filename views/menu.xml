@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<odoo>
+    <menuitem
+        name="早餐店系統"
+        id="breakfast_system_menu_root"
+        sequence="3"
+        groups="base.group_user"
+        web_icon="breakfast_system,static/description/icon.png"/>
+        <menuitem
+            id="breakfast_system_order_menu_root"
+            name="點餐"
+            sequence="5"
+            action="bs_order_action_form"
+            parent="breakfast_system_menu_root"/>
+        <menuitem
+            id="breakfast_system_order_list_menu_root"
+            name="訂單列表"
+            sequence="10"
+            action="bs_order_action"
+            parent="breakfast_system_menu_root"/>
+        <menuitem
+            id="breakfast_system_product_menu_root"
+            name="商品"
+            sequence="15"
+            action="breakfast_system_product_action"
+            parent="breakfast_system_menu_root"/>
+        <menuitem
+            id="breakfast_system_raw_material_menu_root"
+            name="原料"
+            sequence="20"
+            action="bs_raw_material_action"
+            parent="breakfast_system_menu_root"/>
+        <menuitem
+            id="breakfast_system_bs_order_line_graph_menu_root"
+            name="銷售圖表"
+            sequence="30"
+            action="bs_order_line_graph_action"
+            parent="breakfast_system_menu_root"/>
+
+
+</odoo>
+

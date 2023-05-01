@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <!-- note Stage Tree View -->
+    <record id="view_bs_order_line_tree" model="ir.ui.view">
+      <field name="name">bs.order.line.tree</field>
+      <field name="model">bs.order.line</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="order_id"/>
+            <field name="name" options="{'no_create_edit': True, 'no_create':True, 'no_open':True}"/>
+            <field name="price"/>
+            <field name="cost"/>
+            <field name="buy_amount"/>
+            <field name="is_have"/>
+            <field name="amount"/>
+        </tree>
+      </field>
+    </record>
+
+
+
+<!--    <record id="view_bs_order_line_form" model="ir.ui.view">-->
+<!--        <field name="name">bs.order.line.form</field>-->
+<!--        <field name="model">bs.order.line</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <form>-->
+<!--                <sheet>-->
+<!--                    <group>-->
+<!--                        <field name="order_id"/>-->
+<!--                        <field name="name"/>-->
+<!--                        <field name="price"/>-->
+<!--                        <field name="buy_amount"/>-->
+<!--                        <field name="cost"/>-->
+<!--                        <field name="is_have"/>-->
+<!--                        <field name="amount"/>-->
+<!--                        <field name="is_stop"/>-->
+<!--                    </group>-->
+<!--                </sheet>-->
+<!--            </form>-->
+<!--        </field>-->
+<!--    </record>-->
+
+
+
+
+    <!-- Action -->
+    <record id="bs_order_line_action" model="ir.actions.act_window">
+      <field name="name">訂單明細</field>
+      <field name="res_model">bs.order.line</field>
+      <field name="view_mode">tree</field>
+    </record>
+
+
+    <record model="ir.ui.view" id="action_bs_order_line_graph">
+        <field name="name">bs.order.line.graph</field>
+        <field name="model">bs.order.line</field>
+        <field name="arch" type="xml">
+            <graph string="Assets Analysis">
+                <field name="name" type="row"/>
+                <field name="buy_amount" type="measure"/>
+<!--                <field name="unposted_value" type="measure"/>-->
+            </graph>
+        </field>
+    </record>
+
+    <record id="bs_order_line_graph_action" model="ir.actions.act_window">
+      <field name="name">銷售圖表</field>
+      <field name="res_model">bs.order.line</field>
+      <field name="view_mode">graph</field>
+    </record>
+
+
+
+</odoo>

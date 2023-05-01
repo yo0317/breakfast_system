@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <!-- note Stage Tree View -->
+    <record id="view_bs_order_tree" model="ir.ui.view">
+      <field name="name">bs.order.tree</field>
+      <field name="model">bs.order</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="name"/>
+            <field name="order_date"/>
+            <field name="order_user"/>
+        </tree>
+      </field>
+    </record>
+
+
+
+    <record id="view_bs_order_form" model="ir.ui.view">
+        <field name="name">bs.order.form</field>
+        <field name="model">bs.order</field>
+        <field name="arch" type="xml">
+            <form create="0" edit="0">
+                <sheet>
+                    <div class="div_border">
+                        <group>
+                            <field name="name"/>
+                            <field name="order_date"/>
+                            <field name="order_user" widget="many2one_avatar_user"/>
+                        </group>
+                    </div>
+                    <h3 class="gray_border_left">訂單明細</h3>
+                    <div class="div_border">
+                        <field name="order_lines">
+                            <tree editable="bottom">
+                                <field name="name" options="{'no_create_edit': True, 'no_create':True, 'no_open':True}"/>
+                                <field name="price"/>
+                                <field name="buy_amount"/>
+                                <field name="amount"/>
+                                <field name="total"/>
+                            </tree>
+                        </field>
+                    </div>
+                    <div>
+                        <header>
+                            <button name="order_checkout" string="訂單結帳" type="object" class="button23232"/>
+                            <button name="cancel_order" string="取消" type="object" class="button23232"/>
+                        </header>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+
+    <!-- Action -->
+    <record id="bs_order_action" model="ir.actions.act_window">
+      <field name="name">訂單</field>
+      <field name="res_model">bs.order</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <record id="bs_order_action_form" model="ir.actions.act_window">
+      <field name="name">訂單</field>
+      <field name="res_model">bs.order</field>
+      <field name="view_mode">form</field>
+    </record>
+
+
+
+
+
+
+</odoo>

@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_bs_product,bs.product,model_bs_product,base.group_user,1,1,1,1
+access_bs_raw_material,bs.raw.material,model_bs_raw_material,base.group_user,1,1,1,1
+access_bs_product_and_rm,bs.product.and.rm,model_bs_product_and_rm,base.group_user,1,1,1,1
+access_bs_order_line,bs.order.line,model_bs_order_line,base.group_user,1,1,1,1
+access_bs_order,bs.order,model_bs_order,base.group_user,1,1,1,1

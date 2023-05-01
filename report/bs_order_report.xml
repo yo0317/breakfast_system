@@ -1,0 +1,65 @@
+<odoo>
+    <data>
+        <record id="action_bs_order_report" model="ir.actions.report">
+           <field name="name">訂單</field>
+           <field name="model">bs.order</field>
+           <field name="report_type">qweb-html</field>
+           <field name="report_name">breakfast_system.bs_order_report</field>
+           <field name="report_file">breakfast_system.bs_order_report</field>
+           <field name="print_report_name">'訂單'</field>
+           <field name="binding_model_id" ref="breakfast_system.model_bs_order"/>
+        </record>
+
+        <template id="bs_order_report">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.external_layout">
+                    <div style="text-align: center;width: 100%;">
+                        <span style="font-size:12pt;">XXX早餐店</span>
+                    </div>
+                    <div style="text-align: right;width: 100%;">
+                        <span style="font-size:8pt;">點餐時間：<span t-field="doc.order_date"/></span><br/>
+                        <span style="font-size:8pt;">點餐人員：<span t-field="doc.order_user"/></span>
+                    </div>
+                    <table style="width:100%;border-bottom: 1px solid;font-size:10pt;">
+                        <p>訂單明細:</p>
+                        <tr class="title">
+                            <td style="width:25%;">
+                                <p style=''><span style="">餐點</span></p>
+                            </td>
+                            <td style="width:25%;">
+                                <p style=''><span style="">單價</span></p>
+                            </td>
+                            <td style="width:25%;">
+                                <p style=''><span style="">數量</span></p>
+                            </td>
+                            <td style="width:25%;">
+                                <p style=''><span style="">小計</span></p>
+                            </td>
+                        </tr>
+                    </table>
+                    <t t-foreach="doc.order_lines" t-as="line">
+                        <table style="width:100%;">
+                            <tr class="title">
+                                <td style="width:25%;">
+                                    <p style=''><span t-field="line.name"/></p>
+                                </td>
+                                <td style="width:25%;">
+                                    <p style=''><span t-field="line.price"/></p>
+                                </td>
+                                <td style="width:25%;">
+                                    <p style=''><span t-field="line.buy_amount"/></p>
+                                </td>
+                                <td style="width:25%;">
+                                    <p style=''><span t-field="line.total"/></p>
+                                </td>
+                            </tr>
+                        </table>
+                    </t>
+                </t>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>
